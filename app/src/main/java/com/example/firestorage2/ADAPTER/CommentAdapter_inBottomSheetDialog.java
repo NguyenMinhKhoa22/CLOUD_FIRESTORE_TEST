@@ -52,7 +52,7 @@ public class CommentAdapter_inBottomSheetDialog extends RecyclerView.Adapter<Com
 
     @Override
     public void onBindViewHolder(@NonNull CmtViewHolder holder, int position) {
-        holder.contentCmt.setText(mCmtList.get(position).geteContent());
+        holder.contentCmt.setText(mCmtList.get(position).getECmt());
         // get Avatar ( eAvatar ) and Name ( eName ) from Firestore
         String userID = mCmtList.get(position).geteUser();
         mFire.collection("USER_ACCOUNT").document(userID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -35,6 +37,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder>{
@@ -42,6 +45,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     private TextView nameUserProfile;
     private EditText commentCurrentUser_cmt;
     private Button sendCmtCurrentUser_cmt;
+    private RecyclerView rvComment;
     private ArrayList<PostModel> mList;
     private ArrayList<UserAccount_Model> usersList;
 
@@ -124,7 +128,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             @Override
             public void onClick(View view) {
 
-                showCmtBottomSheetDialog();
+                showCmtBottomSheetDialog(position);
 
                 sendCmtCurrentUser_cmt.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -190,13 +194,27 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     }
 
     ///// show layout when click image COMMENT at post
-    private void showCmtBottomSheetDialog() {
+    private void showCmtBottomSheetDialog(int position) {
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context);
         bottomSheetDialog.setContentView(R.layout.layout_bottom_sheet_comment);
         userCurrentAvatar_cmt = bottomSheetDialog.findViewById(R.id.userCurrentAvatar_cmt);
         commentCurrentUser_cmt = bottomSheetDialog.findViewById(R.id.commentCurrentUser_cmt);
         sendCmtCurrentUser_cmt = bottomSheetDialog.findViewById(R.id.sendCmtCurrentUser_cmt);
+        rvComment =  bottomSheetDialog.findViewById(R.id.comment_rec);
         bottomSheetDialog.show();
+        String postId = mList.get(position).PostId;
+        mFire.collection("POST/" + postId + "/COMMENT").get().addOnCompleteListener(task -> {
+            ArrayList<CommentModel_inBottomSheetDialog> data = new ArrayList<>();
+            for (DocumentSnapshot d:  task.getResult().getDocuments()){
+                CommentModel_inBottomSheetDialog obj = d.toObject(CommentModel_inBottomSheetDialog.class);
+                data.add(obj);
+            }
+            if (rvComment!=null){
+                rvComment.setLayoutManager(new LinearLayoutManager(context));
+                CommentAdapter_inBottomSheetDialog adapter = new CommentAdapter_inBottomSheetDialog(context, new ArrayList(), data);
+                rvComment.setAdapter(adapter);
+            }
+        });
     }
 
     @Override
