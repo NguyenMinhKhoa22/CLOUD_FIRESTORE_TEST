@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "482570550364",
+    "project_id": "firestorage2-df13e",
+    "storage_bucket": "firestorage2-df13e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482570550364:android:03a839dbbcff04d31fba99",
+        "android_client_info": {
+          "package_name": "com.example.firestorage2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482570550364-n479apal1cai7mk36tg65ovb548am1a8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firestorage2",
+            "certificate_hash": "1dca7e5b45d2a41ae632c59f2d1c3f8f896e687e"
+          }
+        },
+        {
+          "client_id": "482570550364-dmqril5edvtac2g4fn7tmq61kog6arb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9EqJqu3mR5Et002SofkPQZJLjwYVcuHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482570550364-dmqril5edvtac2g4fn7tmq61kog6arb1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

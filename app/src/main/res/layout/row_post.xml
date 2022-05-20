@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="11dp"
+        android:elevation="99dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@drawable/custom_layout"
+
+            android:orientation="vertical"
+            android:layout_width="400dp"
+            android:layout_height="414dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/avatarUserPost_row"
+                    android:layout_margin="4dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="#55D8C1"
+                        android:layout_margin="3dp"
+                        android:id="@+id/nameUserPost_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="29sp"
+                        android:text="Username" />
+
+                    <TextView
+                        android:textColor="#FAF5E4"
+                        android:layout_margin="3dp"
+                        android:id="@+id/dateUserPost_row"
+                        android:text="00/00/0000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/delete_post_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/ic_delete"
+                  />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgPostuser_row"
+                android:layout_width="match_parent"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="54dp"
+                android:layout_height="230dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/title_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:textColor="#FFD24C"
+                    android:textSize="27sp" />
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/description_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text="Description"
+                    android:textColor="#FF4949"
+                    android:textSize="27sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/LikePost"
+                        android:src="@drawable/before_liked"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"/>
+                    <TextView
+                        android:id="@+id/like_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="5dp"
+                        android:text="0 Likes"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+                    <ImageView
+                        android:id="@+id/CommentPost"
+                        android:layout_marginStart="9dp"
+                        android:src="@drawable/ic_cmt"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
